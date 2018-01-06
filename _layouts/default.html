@@ -14,15 +14,14 @@
     {% endif %}
 	<link rel="stylesheet" href="/assets/css/font-awesome.min.css">
 	<link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="/assets/img/fav.ico" type="image/x-icon">
+	<link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
 	<script src="/assets/js/highlight.pack.js"></script>
-	{% include analytics.html %}
 	<script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
 	<div class="wrapper">
 		<div class="default_title">
-			<img src="/assets/img/server_window.png" />
+			<img src="/assets/img/mycomputer.png" />
 			{% if page.tag %}
 				<h1>{{ page.tag }}</h1>
 			{% else %}
@@ -36,16 +35,16 @@
 			<ul>
 				{% assign tags = site.tags | sort %}
 				{% for tag in tags %}
-				<li><a href="/project_folder/{{ tag | first | slugify }}/" title="{{ tag[0] | replace:'-', ' ' }}"><img src="/assets/img/folder.ico" />{{ tag[0] | replace:'-', ' ' }}</a></li>
+				<li><a href="/tag/{{ tag | first | slugify }}/" title="{{ tag[0] | replace:'-', ' ' }}"><img src="/assets/img/folder.ico" />{{ tag[0] | replace:'-', ' ' }}</a></li>
 				{% endfor %}
 			</ul>
+				</li>
 				<li><a href="/" ><img src="/assets/img/disk.png" />(D:) Assignments</a>
-			<ul>
-				{% assign tags = site.tags | sort %}
-				{% for tag in tags %}
-				<li><a href="/week_folder/{{ tag | first | slugify }}/" title="{{ tag[0] | replace:'-', ' ' }}"><img src="/assets/img/folder.ico" />{{ tag[0] | replace:'-', ' ' }}</a></li>
-				{% endfor %}
-			</ul>
+					<ul>
+						{% for post in site.posts %}
+					<li><a href="{{ post.url }}"><img src="/assets/img/folder.ico" />{{ post.title }}</a></li>
+						{% endfor %}
+					</ul>
 				</li>
 			</ul>
 		</div>
@@ -91,6 +90,9 @@
 			</ul>
 			<div class="post_content">
         		{{ content }}
+				{% if page.title %}
+					{% include donate.html %}
+				{% endif %}
 			</div>
 		</div>
     {% endif %}

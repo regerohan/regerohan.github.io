@@ -3,10 +3,12 @@ url: #Your url here
 baseurl: /
 
 # variables
-name: Rohan Rege
-description: My Fab Academy Webpage 
+name: Your Site Name
+description: Your description here
 google_verification: null
 
+# Time Zone
+timezone: 	Asia/Kolkata
 
 # File management
 include: [".htaccess"]

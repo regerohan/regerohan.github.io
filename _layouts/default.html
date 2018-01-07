@@ -42,7 +42,7 @@
 				<li><a href="/" ><img src="/assets/img/disk.png" />(D:) Assignments</a>
 					<ul>
 						{% for post in site.posts %}
-					<li><a href="{{ post.url }}"><img src="/assets/img/folder.ico" />{{ post.title }}</a></li>
+					<li><a href="{{ post.url }}"><img src="/assets/img/folder.ico" title:"{{post.title}}" />{{ post.title }}</a></li>
 						{% endfor %}
 					</ul>
 				</li>

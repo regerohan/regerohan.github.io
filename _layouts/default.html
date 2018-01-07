@@ -32,22 +32,27 @@
 		<div class="tag_list">
 			<ul id="tag-list">
 				<li><a href="/" ><img src="/assets/img/disk.png" />(C:) Final Project</a>
-			<ul>
-				{% assign tags = site.tags | sort %}
-				{% for tag in tags %}
-				<li><a href="/tag/{{ tag | first | slugify }}/" title="{{ Week[0] | replace:'-', ' ' }}"><img src="/assets/img/folder.ico" />{{ Week[0] | replace:'-', ' ' }}</a></li>
-				{% endfor %}
-			</ul>
+					<ul>
+						{% for post in site.posts %}
+						{% if post.title contains 'Project' %}
+					<li><a href="{{ post.url }}"><img src="/assets/img/folder.ico" />{{ post.title }}</a></li>
+						{% endif %}
+						{% endfor %}
+					</ul>
 				</li>
 				<li><a href="/" ><img src="/assets/img/disk.png" />(D:) Assignments</a>
 					<ul>
 						{% for post in site.posts %}
-					<li><a href="{{ post.url }}"><img src="/assets/img/folder.ico" title:"{{post.title}}" />{{ post.title }}</a></li>
+						{% if post.title contains 'Project' %}
+						{% else %}
+					<li><a href="{{ post.url }}"><img src="/assets/img/folder.ico" />{{ post.title }}</a></li>
+						{% endif %}
 						{% endfor %}
 					</ul>
 				</li>
 			</ul>
 		</div>
+		
 		<div class="post_list">
 			{% unless page.date%}
 				{% if page.title == 'me' or page.title == '404...' %}

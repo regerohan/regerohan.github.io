@@ -32,27 +32,22 @@
 		<div class="tag_list">
 			<ul id="tag-list">
 				<li><a href="/" ><img src="/assets/img/disk.png" />(C:) Final Project</a>
-					<ul>
-						{% for post in site.posts %}
-						{% if post.title contains 'Project' %}
-					<li><a href="{{ post.url }}"><img src="/assets/img/folder.ico" />{{ post.title }}</a></li>
-						{% endif %}
-						{% endfor %}
-					</ul>
+			<ul>
+				{% assign tags = site.tags | sort %}
+				{% for tag in tags %}
+				<li><a href="/tag/{{ tag | first | slugify }}/" title="{{ tag[0] | replace:'-', ' ' }}"><img src="/assets/img/folder.ico" />{{ tag[0] | replace:'-', ' ' }}</a></li>
+				{% endfor %}
+			</ul>
 				</li>
 				<li><a href="/" ><img src="/assets/img/disk.png" />(D:) Assignments</a>
 					<ul>
 						{% for post in site.posts %}
-						{% if post.title contains 'Project' %}
-						{% else %}
 					<li><a href="{{ post.url }}"><img src="/assets/img/folder.ico" />{{ post.title }}</a></li>
-						{% endif %}
 						{% endfor %}
 					</ul>
 				</li>
 			</ul>
 		</div>
-		
 		<div class="post_list">
 			{% unless page.date%}
 				{% if page.title == 'me' or page.title == '404...' %}
@@ -104,7 +99,7 @@
 	<script src="/assets/js/001.js"></script>
 	<script src="/assets/js/002.js"></script>
 	<div class="footer">
-		<p> &#149 Made with <i class="fa fa-heart fa-lg " aria-hidden="true" title="Love"></i> in Vigyan Ashram, <i title="18°49'56.7&quot;N 74°03'31.7&quot;E">Pabal &#149 </i></p>
+		<p>Created by <a href="http://github.com/h01000110" target="_blank">h01000110 (hi)</a> | Code licensed under <a href="https://github.com/h01000110/h01000110.github.io/blob/master/LICENSE" target="_blank">MIT License</a></p>
 	</div>
 </body>
 </html>

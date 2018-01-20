@@ -33,19 +33,19 @@
 			<ul id="tag-list">
 				<li><a href="/" ><img src="/assets/img/disk.png" />(C:) Final Project</a>
 			<ul>
-				{% assign tags = site.tags | sort %}
-				{% for tag in tags %}
+					{% for post in site.posts %}
+					{% if post.assignment == 'n' %}
+				<li><a href="{{ post.url }}" title="{{ post.title }}"><img src="/assets/img/folder.ico" title="{{ post.title }}" />{{ post.week | replace: '-',' ' | capitalize }}</a></li>
+					{% endif %}
+					{% endfor %}
 				
-				<li><a href="/tag/{{ tag | first | slugify }}/" title="{{ post.title }}"><img src="/assets/img/folder.ico" />{{ tag[0] | replace:'-', ' ' }}</a></li>
-				
-				{% endfor %}
 			</ul>
 				</li>
 				<li><a href="/" ><img src="/assets/img/disk.png" />(D:) Assignments</a>
 					<ul>
-						{% for post.title in posts %}
-						{% if post.title contains 'Assignment' %}
-					<li><a href="{{ post.url }}"><img src="/assets/img/folder.ico" />{{ post.title }}</a></li>
+						{% for post in site.posts %}
+						{% if post.assignment == 'y' %}					
+					<li><a href="{{ post.url }}" title="{{ post.title }}"><img src="/assets/img/folder.ico" title="{{ post.title }}"/>{{ post.week | replace: '-','  ' | capitalize }}</a></li>
 						{% endif %}
 						{% endfor %}
 					</ul>

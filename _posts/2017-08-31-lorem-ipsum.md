@@ -1,8 +1,7 @@
 ---
 layout: default
-title: "Week 1"
-tags:
-week: week1
+title: "Assignment 1"
+tags: week1
 ---
 
 ## Lorem Ipsum

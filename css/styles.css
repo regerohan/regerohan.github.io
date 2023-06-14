@@ -1,0 +1,101 @@
+/* styles.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Nova+Cut&display=swap');
+
+@font-face {
+    font-family: 'AnglicanText';
+    src: url(../font/anglicantext-webfont.woff2) format('woff2'),
+         url(../font/anglicantext-webfont.woff) format('woff');
+}
+
+
+/* Global styles */
+body {
+    font-family: 'Nova Cut', cursive;
+    margin: 0 auto;
+    /* padding: 50px; */
+    background-color: #000000;
+    color: #333;
+    width: 1200px;
+}
+
+.background {
+     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+h1 {
+    font-size: 120px;
+    /* margin-bottom: 20px; */
+    text-align: center;
+    font-family: 'AnglicanText';
+    color: #453633;
+}
+
+img {
+    display: block;
+    margin: auto;
+    /* border-radius: 50%; */
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); */
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Specific styles */
+p strong {
+    color: #453633;;
+}
+
+.picture-column {
+    padding-top: 40px;
+    padding-left: 40px;
+    /* margin-right: 50px; */
+    /* width: 50%; */
+    float: left;
+    align-self: center;
+    transform: rotate(2.5deg);
+    /* border: #000000;
+    border-style: solid; */
+}
+
+.information-column {
+    transform: rotate(2.5deg);
+    padding-left: 300px;
+    /* border: #000000;
+    border-style: solid; */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 40px;
+    padding-top: 60px;
+    padding-left: 50px;
+}
+
+.headshot {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0);
+}
